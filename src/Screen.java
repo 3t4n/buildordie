@@ -1,12 +1,14 @@
 package buildordie;
+
 import java.awt.*;
 import java.awt.image.*;
-import buildordie.GameLoop;
+import javax.swing.*;
+import buildordie.*;
 
 public abstract class Screen
 {
-	private GameLoop contexto;
-	private Image bf;
+	protected GameLoop contexto;
+	protected Image bf;
 
 	public Screen(GameLoop contexto)
 	{
@@ -16,9 +18,9 @@ public abstract class Screen
 	public abstract void update();
 	public abstract void render(Graphics g);
 
-	public void changeScreen(Screen s)
+	public void setScreen(Screen s)
 	{
-		contexto.changeScreen(s);
+		this.contexto.setScreen(s);
 	}
 
 }
