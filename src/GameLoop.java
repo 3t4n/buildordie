@@ -16,7 +16,7 @@ public class GameLoop extends JComponent implements Runnable
 	private int numUpdates = 0;
 	private int duracion = 0;
 	private boolean pausa = false;
-	public  static long FPS = 100/60;
+	public  static long FPS = 1000/10;
 	public  final int altura = 600;
 	public  final int anchura = 800;
 	
@@ -98,6 +98,12 @@ public class GameLoop extends JComponent implements Runnable
 	{
 		this.pantalla.handleInput();
 	}
+	    @Override
+    public Dimension getPreferredSize()
+    {
+        return new Dimension(anchura,altura);
+    }
+
 
 }
 
