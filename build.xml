@@ -1,0 +1,35 @@
+<project default="run">
+	<target name="release" depends="jar"/>
+	<target name="run" depends="build, exec"/>
+	
+	<target name="clean">
+		<delete dir="bin" quiet="true"/>
+	</target>
+
+	<target name="build">
+		<mkdir dir="bin/debug"/>
+		<javac srcdir="src"
+			destdir="bin/debug"
+			debug="true"
+			includeAntRuntime="false">
+		</javac>
+		<copy todir="bin/debug/assets">
+			<fileset dir="assets"/>
+		</copy>
+	</target>
+
+	<target name="exec">
+		<java classname="buildordie.Main" fork="true">
+			<classpath>
+				<pathelement location="bin/debug" />
+			</classpath>
+		</java>
+	</target>
+
+	<target name="jar" depends="build">
+		<mkdir dir="bin/release" />
+		<jar destfile="bin/release/buildordie.jar" manifest="src/buildordie/manifest">
+			<fileset dir="bind/debug"/>
+		</jar>
+	</target>
+</project>
