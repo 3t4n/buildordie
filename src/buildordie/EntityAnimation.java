@@ -54,7 +54,7 @@ public class EntityAnimation implements Animation
 		double locationY = imag.getHeight() / 2;
 		AffineTransform tx = AffineTransform.getRotateInstance(rotationRequired, locationX, locationY);
 		tx.scale(this.escala,this.escala);
-		tx.
+		tx.translate(4*imag.getWidth(),4*imag.getHeight());
 		AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
        		return	op.filter(imag, null);
 	}

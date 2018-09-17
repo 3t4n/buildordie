@@ -32,6 +32,6 @@ public class Game extends Screen
 	{
 		g.setColor(Color.WHITE);
 		g.fillRect(0,0,800,600);
-		g.drawImage(test.getFrame(), -500,-500,this.contexto);
+		g.drawImage(test.getFrame(), 0,0,this.contexto);
 	}
 }
