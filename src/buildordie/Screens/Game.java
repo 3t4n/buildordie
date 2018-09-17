@@ -1,15 +1,19 @@
 package buildordie.Screens;
 import java.awt.*;
 import buildordie.*;
+import buildordie.interfaces.*;
 import java.awt.event.*;
-
+import java.util.*;
 public class Game extends Screen
 {
-	private int x=0;
-	private int y=0;
+//	ArraList<Entity> entidades;
+	EntityAnimation test;
 	public Game(GameLoop contexto)
 	{
 		super(contexto);
+		test = new EntityAnimation("assets/animations/players/Man/Bat/Bat",180,0.2,11,1);
+
+//		entidades.add(new Player());
 	}
 	@Override
 	public void handleInput()
@@ -22,11 +26,12 @@ public class Game extends Screen
 
 	public void update()
 	{
-		x+=1;
-		y+=1;
+		test.update();
 	}
 	public void render(Graphics g)
 	{
-		g.fillOval(x,y,10,10);
+		g.setColor(Color.WHITE);
+		g.fillRect(0,0,800,600);
+		g.drawImage(test.getFrame(), -500,-500,this.contexto);
 	}
 }

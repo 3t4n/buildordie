@@ -1,12 +1,13 @@
-package buildordie;
+package buildordie.interfaces;
 
 import java.awt.*;
-
 public interface Entity
 {
 	//https://docs.oracle.com/javase/7/docs/api/java/awt/Point.html
-	public Point getPosition();
+	public void setController(Controller c);
 	public void setPosition(Point p);
+	public Point getPosition();
+	public void handleInput();
 	public void update();
 	public void render(Graphics g);
 }

@@ -16,6 +16,7 @@
 		<copy todir="bin/debug/assets">
 			<fileset dir="assets"/>
 		</copy>
+		<copy file="config.json" todir="bin/debug"/>
 	</target>
 
 	<target name="exec">
@@ -29,7 +30,7 @@
 	<target name="jar" depends="build">
 		<mkdir dir="bin/release" />
 		<jar destfile="bin/release/buildordie.jar" manifest="src/buildordie/manifest">
-			<fileset dir="bind/debug"/>
+			<fileset dir="bin/debug"/>
 		</jar>
 	</target>
 </project>
