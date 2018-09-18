@@ -7,4 +7,5 @@ public class Global{
 	public static MouseHandler raton;
 	public static Screen pantalla;
 	public static GameLoop panel;
+	public static ImageEntity jugador;
 }

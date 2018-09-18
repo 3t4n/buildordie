@@ -44,6 +44,7 @@ public class ImageEntity implements Entity
 		if(controlador!=null)
 			controlador.update(this);
 	}
+	@Override
 	public void setAnimation(Animation a)
 	{	
 		this.animacion=a;

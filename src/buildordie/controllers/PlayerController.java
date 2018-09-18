@@ -7,6 +7,7 @@ import java.awt.event.*;
 public class PlayerController implements Controller
 {
 	private int move;
+	private boolean atacando = false;
 	private int dy=0,dx=0;
 	@Override
 	public void handleInput(Entity e)
@@ -18,15 +19,14 @@ public class PlayerController implements Controller
                      : Global.teclado.justPressed(KeyEvent.VK_S) ? 0
                      : Global.teclado.justPressed(KeyEvent.VK_W) ? 180
 : -1;
-  		dx = move==270 ? 5
-                     : move==90? -5
+  		dx = move==270 ? 10
+                     : move==90? -10
                      : 0;
 
-		dy = move==180 ? -5
-                     : move==0 ? 5
+		dy = move==180 ? -10
+                     : move==0 ? 10
                      : 0;
-		if(move==-1)
-
+		atacando=Global.raton.isPressed();
 	}
 	@Override
 	public void update(Entity e)
@@ -42,7 +42,7 @@ public class PlayerController implements Controller
 		}
 		else
 		{
-			e.getAnimation().setFrame(0);
+				e.getAnimation().setFrame(0);	
 			e.getAnimation().setRotation((int) Math.toDegrees(Math.atan2(Global.raton.getY()-y, Global.raton.getX()-x))+220);
 		}
 	}

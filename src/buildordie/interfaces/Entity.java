@@ -11,4 +11,5 @@ public interface Entity
 	public void update();
 	public void render(Graphics g);
 	public Animation getAnimation();
+	public void setAnimation(Animation a);
 }

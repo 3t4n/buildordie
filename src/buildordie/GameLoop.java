@@ -85,6 +85,8 @@ public class GameLoop extends JComponent implements Runnable
 
 	public void update()
 	{
+		Global.teclado.update();
+		Global.raton.update();
 		this.pantalla.update();
 	}
 
