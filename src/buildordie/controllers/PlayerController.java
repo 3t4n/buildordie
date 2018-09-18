@@ -25,7 +25,7 @@ public class PlayerController implements Controller
 		dy = move==180 ? -5
                      : move==0 ? 5
                      : 0;
-
+		if(move==-1)
 
 	}
 	@Override
@@ -43,6 +43,7 @@ public class PlayerController implements Controller
 		else
 		{
 			e.getAnimation().setFrame(0);
+			e.getAnimation().setRotation((int) Math.toDegrees(Math.atan2(Global.raton.getY()-y, Global.raton.getX()-x))+220);
 		}
 	}
 }

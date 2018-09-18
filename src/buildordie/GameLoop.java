@@ -27,10 +27,13 @@ public class GameLoop extends JComponent implements Runnable
 		setFocusable(true);
 		setIgnoreRepaint(true);
 		Global.teclado = new KeyHandler();
+		Global.raton = new MouseHandler();
 		this.pantalla = new Game(this);
 		Global.pantalla = this.pantalla;
 		Global.panel = this;
 		addKeyListener(Global.teclado);
+		addMouseListener(Global.raton);
+		addMouseMotionListener(Global.raton);
 	}
 	@Override
 	public void run()
