@@ -25,7 +25,7 @@ public class Game extends Screen
 		if (Global.teclado.justPressed(KeyEvent.VK_SPACE)) {
 			contexto.setPaused(!contexto.getPaused());
 		}
-		
+		player.handleInput();		
 	}
 
 	public void update()

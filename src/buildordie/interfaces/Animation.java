@@ -6,4 +6,5 @@ public interface Animation
 	public BufferedImage getFrame();
 	public void update();
 	public void setRotation(int r);
+	public void setFrame(int f);
 }

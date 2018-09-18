@@ -32,6 +32,12 @@ public class EntityAnimation implements Animation
 	}
 
 	@Override
+	public void setFrame(int i)
+	{
+		this.imagenAct=i;
+	}
+
+	@Override
 	public void update()
 	{
 		if(ticks%numActs==0){
