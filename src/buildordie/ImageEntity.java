@@ -14,6 +14,8 @@ public class ImageEntity implements Entity
 	{
 		this.nombre=nombre;
 		this.posicion=p;
+
+		this.animacion=new EntityAnimation(nombre,180,0.2,5,1);
 	}
 	@Override
 	public void setController(Controller c)
@@ -46,10 +48,14 @@ public class ImageEntity implements Entity
 	{	
 		this.animacion=a;
 	}
+	public Animation getAnimation()
+	{
+		return this.animacion;
+	}
 	@Override
 	public void render(Graphics g)
 	{
-		////if(this.animacion!=null)
-		//	g.drawImage
+		if(this.animacion!=null)
+			g.drawImage(animacion.getFrame(),(int)posicion.getX(),(int)posicion.getY(),Global.panel);
 	}
 }

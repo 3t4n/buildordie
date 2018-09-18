@@ -49,14 +49,17 @@ public class EntityAnimation implements Animation
 	public BufferedImage getFrame()
 	{
 		BufferedImage imag = this.cuadros.get(imagenAct);
+		AffineTransform at = new AffineTransform();
+		at.scale(this.escala,this.escala);
+		AffineTransformOp scale = new AffineTransformOp(at, AffineTransformOp.TYPE_BILINEAR);
+		BufferedImage resized = scale.filter(imag,null);
 		double rotationRequired = Math.toRadians (this.rotacion);
-		double locationX = imag.getWidth() / 2;
-		double locationY = imag.getHeight() / 2;
+		double locationX = resized.getWidth() / 2;
+		double locationY = resized.getHeight() / 2;
 		AffineTransform tx = AffineTransform.getRotateInstance(rotationRequired, locationX, locationY);
-		tx.scale(this.escala,this.escala);
-		tx.translate(4*imag.getWidth(),4*imag.getHeight());
+//		tx.translate(resized.getWidth()/2,resized.getHeight()/2);
 		AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
-       		return	op.filter(imag, null);
+       		return	op.filter(resized, null);
 	}
 
 }

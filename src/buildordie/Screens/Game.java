@@ -2,16 +2,20 @@ package buildordie.Screens;
 import java.awt.*;
 import buildordie.*;
 import buildordie.interfaces.*;
+import buildordie.controllers.*;
 import java.awt.event.*;
 import java.util.*;
 public class Game extends Screen
 {
 //	ArraList<Entity> entidades;
-	EntityAnimation test;
+	ImageEntity player;
 	public Game(GameLoop contexto)
 	{
 		super(contexto);
-		test = new EntityAnimation("assets/animations/players/Man/Bat/Bat",180,0.2,11,1);
+
+		player = new ImageEntity("assets/animations/players/Man/Walk_bat/Walk_bat",new Point(0,600));
+		player.setController(new PlayerController());
+		//test = new EntityAnimation("assets/animations/players/Man/Walk_bat/Walk_bat",0,0.2,5,1);
 
 //		entidades.add(new Player());
 	}
@@ -26,12 +30,12 @@ public class Game extends Screen
 
 	public void update()
 	{
-		test.update();
+		player.update();
 	}
 	public void render(Graphics g)
 	{
 		g.setColor(Color.WHITE);
 		g.fillRect(0,0,800,600);
-		g.drawImage(test.getFrame(), 0,0,this.contexto);
+		player.render(g);
 	}
 }

@@ -29,6 +29,7 @@ public class GameLoop extends JComponent implements Runnable
 		Global.teclado = new KeyHandler();
 		this.pantalla = new Game(this);
 		Global.pantalla = this.pantalla;
+		Global.panel = this;
 		addKeyListener(Global.teclado);
 	}
 	@Override

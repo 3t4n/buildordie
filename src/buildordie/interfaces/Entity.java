@@ -10,4 +10,5 @@ public interface Entity
 	public void handleInput();
 	public void update();
 	public void render(Graphics g);
+	public Animation getAnimation();
 }
