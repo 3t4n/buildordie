@@ -21,7 +21,7 @@ public abstract class Screen
 
 	public void setScreen(Screen s)
 	{
-		this.contexto.setScreen(s);
+		Global.pantalla=s;
 	}
 
 }

@@ -28,8 +28,7 @@ public class GameLoop extends JComponent implements Runnable
 		setIgnoreRepaint(true);
 		Global.teclado = new KeyHandler();
 		Global.raton = new MouseHandler();
-		this.pantalla = new Game(this);
-		Global.pantalla = this.pantalla;
+		Global.pantalla = new Game(this);
 		Global.panel = this;
 		addKeyListener(Global.teclado);
 		addMouseListener(Global.raton);
@@ -65,13 +64,9 @@ public class GameLoop extends JComponent implements Runnable
 				Global.teclado.update();
 				lag -= FPS;
 			}
-			this.pantalla.render(buffer.getGraphics());
+			Global.pantalla.render(buffer.getGraphics());
 			getGraphics().drawImage(buffer, 0,0, this);
 		}
-	}
-	public void setScreen(Screen s)
-	{
-		this.pantalla = s;
 	}
 
 	public void setPaused(boolean b)
@@ -87,7 +82,7 @@ public class GameLoop extends JComponent implements Runnable
 	{
 		Global.teclado.update();
 		Global.raton.update();
-		this.pantalla.update();
+		Global.pantalla.update();
 	}
 
 	public Image getBuffer()
@@ -102,7 +97,7 @@ public class GameLoop extends JComponent implements Runnable
 
 	public void handleInput()
 	{
-		this.pantalla.handleInput();
+		Global.pantalla.handleInput();
 	}
 	    @Override
     public Dimension getPreferredSize()
