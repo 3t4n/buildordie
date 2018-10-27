@@ -8,11 +8,11 @@ public class Tile
 	private int anchura, altura;
 	private BufferedImage piso;
 	
-	public Tile(Point p, int w, int h, string d){
+	public Tile(Point p, int w, int h){
 		posicion = p;
 		anchura = w;
 		altura = h;
-		piso = Utils.loadImage(d);
+		//piso = Utils.loadImage(d);
 	}
 	
 	public void update(){
