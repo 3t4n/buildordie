@@ -6,9 +6,8 @@ import javax.swing.*;
 import buildordie.*;
 import buildordie.Screens.*;
 
-public class GameLoop extends JComponent implements Runnable
-{
-	private Image bf;
+public class GameLoop extends JComponent implements Runnable, Scrollable{
+	private BufferedImage bf;
 	private Screen pantalla;
 	private int numActs = 0;
 	private int lag = 0;
@@ -17,8 +16,8 @@ public class GameLoop extends JComponent implements Runnable
 	private int duracion = 0;
 	private boolean pausa = false;
 	public  static long FPS = 1000/10;
-	public  final int altura = 600;
-	public  final int anchura = 800;
+	public  final int altura = 5400;
+	public  final int anchura = 10800;
 	
 
 	public GameLoop()
@@ -47,7 +46,7 @@ public class GameLoop extends JComponent implements Runnable
 			lag += pasado;
 			duracion += pasado;
 			
-			if(duracion>3000)
+			if(duracion>30000)
 			{
 				duracion=0;
 				numRenders = 0;
@@ -64,11 +63,35 @@ public class GameLoop extends JComponent implements Runnable
 				Global.teclado.update();
 				lag -= FPS;
 			}
-			Global.pantalla.render(buffer.getGraphics());
-			getGraphics().drawImage(buffer, 0,0, this);
+			Global.pantalla.render(buffer.getGraphics());		
+			getGraphics().drawImage(bf, 0,0, this);
 		}
 	}
-
+	@Override
+	public Dimension getPreferredScrollableViewportSize()
+		{
+			return new Dimension(640, 480);
+		}
+	@Override
+	public int getScrollableUnitIncrement(Rectangle visibleRect, int orientation, int direction)
+	{
+		return 0;
+	}
+	@Override
+	public int getScrollableBlockIncrement(Rectangle visibleRect, int orientation, int direction)
+	{
+		return 0;
+	}
+	@Override
+	public boolean getScrollableTracksViewportWidth()
+	{
+		return false;
+	}
+	@Override 
+	public boolean getScrollableTracksViewportHeight()
+	{
+		return false;
+	}
 	public void setPaused(boolean b)
 	{
 		this.pausa = b;
@@ -94,7 +117,6 @@ public class GameLoop extends JComponent implements Runnable
 	{
 		this.bf = b;
 	}
-
 	public void handleInput()
 	{
 		Global.pantalla.handleInput();

@@ -12,7 +12,7 @@ public class Utils
 	public final static Utils instance = new Utils();
 	public final static String config = "config.json";
 
-	public BufferedImage loadImage(String filename)
+	public static BufferedImage loadImage(String filename)
 	{
 		BufferedImage frame = null;
 		try {

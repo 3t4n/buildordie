@@ -11,13 +11,13 @@ public class Main
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 JFrame frame = new JFrame("Test");
-                Container pane = frame.getContentPane();
-                GameLoop ciclojuego = new GameLoop();
-                frame.getContentPane().add(ciclojuego);
-                frame.pack();
+		Container pane = frame.getContentPane();
+		GameLoop ciclojuego = new GameLoop();
+		frame.getContentPane().add(ciclojuego);
+		frame.pack();
                 frame.setLocationRelativeTo(null);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setResizable(true);
+                frame.setResizable(false);
                 frame.setVisible(true);
                 new Thread(ciclojuego).start();
             }

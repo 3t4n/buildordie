@@ -8,22 +8,19 @@ import java.awt.event.*;
 import java.util.*;
 public class Game extends Screen
 {
-//	ArraList<Entity> entidades;
+	Map mapa;
 	ImageEntity player, zombie;
 	BufferedImage bg;
 	public Game(GameLoop contexto)
 	{
 		super(contexto);
-
+		mapa = new Map(10,10);
 		player = new ImageEntity("assets/animations/players/Man/Walk_bat/Walk_bat",new Point(0,600));
 		zombie = new ImageEntity("assets/animations/enemies/zombie/Walk/walk",new Point(50,50));
 		Global.jugador=player;
 		player.setController(new PlayerController());
 		zombie.setController(new ZombieController());
 		bg = Utils.instance.loadImage("assets/bg/test.jpeg");
-		//test = new EntityAnimation("assets/animations/players/Man/Walk_bat/Walk_bat",0,0.2,5,1);
-
-//		entidades.add(new Player());
 	}
 	@Override
 	public void handleInput()
@@ -36,13 +33,13 @@ public class Game extends Screen
 
 	public void update()
 	{
+		map.update();
 		player.update();
 		zombie.update();
 	}
 	public void render(Graphics g)
 	{
-		g.drawImage(bg,0,0,Global.panel);
-		g.drawImage(bg,0,300,Global.panel);
+		mapa.render(g);
 		player.render(g);
 		zombie.render(g);
 	}
