@@ -1,12 +1,13 @@
 package buildordie;
 
 import java.awt.*;
+import java.awt.image.*;
 
 public class Tile
 {
 	private Point posicion;
 	private int anchura, altura;
-	private BufferedImage piso;
+	//private BufferedImage piso;
 	
 	public Tile(Point p, int w, int h)
 	{
