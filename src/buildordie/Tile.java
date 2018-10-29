@@ -1,12 +1,14 @@
 package buildordie;
 
 import java.awt.*;
+import java.awt.image.*;
+import javax.swing.*;
+import buildordie.*;
 
 public class Tile
 {
 	private Point posicion;
 	private int anchura, altura;
-	private BufferedImage piso;
 	
 	public Tile(Point p, int w, int h){
 		posicion = p;
@@ -17,14 +19,17 @@ public class Tile
 	
 	public void update(){
 		Point off = Global.jugador.getPosition();
-		posicion = new Point(off.getX()+posicion.getX(), off.getY()+posicion.getY());
+		posicion = new Point((int)(off.getX()+posicion.getX()), (int)(off.getY()+posicion.getY()));
 	}
 	
 	public void render(Graphics g){
+	//	BufferedImage piso = new BufferedImage(anchura,altura,BufferedImage.TYPE_INT_RGB);
+	//	Graphics t = piso.getGraphics();
 		g.setColor(Color.black);
-		g.fillRect(point.getX(), point.getY(), anchura, altura);
+		g.fillRect((int)posicion.getX(), (int)posicion.getY(), anchura, altura);
 		
 		g.setColor(Color.white);
-		g.fillRect(point.getX(), point.getY(), anchura-1, altura-1);
+		g.fillRect((int)posicion.getX(), (int)posicion.getY(), anchura-1, altura-1);
+		//g.drawImage(piso,(int)posicion.getX(),(int)posicion.getY(),Global.panel);
 	}
 }

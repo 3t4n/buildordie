@@ -6,21 +6,22 @@ import buildordie.interfaces.*;
 import buildordie.controllers.*;
 import java.awt.event.*;
 import java.util.*;
+
 public class Game extends Screen
 {
-	Map mapa;
+	World mapa;
 	ImageEntity player, zombie;
 	BufferedImage bg;
 	public Game(GameLoop contexto)
 	{
 		super(contexto);
-		mapa = new Map(10,10);
-		player = new ImageEntity("assets/animations/players/Man/Walk_bat/Walk_bat",new Point(0,600));
-		zombie = new ImageEntity("assets/animations/enemies/zombie/Walk/walk",new Point(50,50));
+		mapa = new World(40,40,32,32);
+		player = new ImageEntity("assets/animations/players/Man/Walk_bat/Walk_bat",new Point(100,100));
+		zombie = new ImageEntity("assets/animations/enemies/zombie/Walk/walk",new Point(0,0));
 		Global.jugador=player;
 		player.setController(new PlayerController());
 		zombie.setController(new ZombieController());
-		bg = Utils.instance.loadImage("assets/bg/test.jpeg");
+		//bg = Utils.instance.loadImage("assets/bg/test.jpeg");
 	}
 	@Override
 	public void handleInput()
@@ -33,7 +34,7 @@ public class Game extends Screen
 
 	public void update()
 	{
-		map.update();
+		mapa.update();
 		player.update();
 		zombie.update();
 	}
@@ -41,6 +42,6 @@ public class Game extends Screen
 	{
 		mapa.render(g);
 		player.render(g);
-		zombie.render(g);
+//		zombie.render(g);
 	}
 }

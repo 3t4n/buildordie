@@ -7,7 +7,7 @@ import buildordie.*;
 import buildordie.Screens.*;
 
 public class GameLoop extends JComponent implements Runnable, Scrollable{
-	private BufferedImage bf;
+	private Image bf;
 	private Screen pantalla;
 	private int numActs = 0;
 	private int lag = 0;
@@ -16,8 +16,8 @@ public class GameLoop extends JComponent implements Runnable, Scrollable{
 	private int duracion = 0;
 	private boolean pausa = false;
 	public  static long FPS = 1000/10;
-	public  final int altura = 5400;
-	public  final int anchura = 10800;
+	public  final int altura = 600;
+	public  final int anchura = 800;
 	
 
 	public GameLoop()
@@ -27,11 +27,13 @@ public class GameLoop extends JComponent implements Runnable, Scrollable{
 		setIgnoreRepaint(true);
 		Global.teclado = new KeyHandler();
 		Global.raton = new MouseHandler();
+		//bf = Utils.loadImage("assets/bg.jpg");
 		Global.pantalla = new Game(this);
 		Global.panel = this;
 		addKeyListener(Global.teclado);
 		addMouseListener(Global.raton);
 		addMouseMotionListener(Global.raton);
+		setPreferredSize(new Dimension(anchura, altura));
 	}
 	@Override
 	public void run()
@@ -63,8 +65,8 @@ public class GameLoop extends JComponent implements Runnable, Scrollable{
 				Global.teclado.update();
 				lag -= FPS;
 			}
-			Global.pantalla.render(buffer.getGraphics());		
-			getGraphics().drawImage(bf, 0,0, this);
+			Global.pantalla.render(buffer.getGraphics());
+			getGraphics().drawImage(buffer, 0,0, this);
 		}
 	}
 	@Override
@@ -117,6 +119,7 @@ public class GameLoop extends JComponent implements Runnable, Scrollable{
 	{
 		this.bf = b;
 	}
+
 	public void handleInput()
 	{
 		Global.pantalla.handleInput();
