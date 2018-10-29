@@ -32,6 +32,8 @@ public class World
 	
 	public void render(Graphics g)
 	{
+		g.setColor(Color.black);
+		g.fillRect(0,0,800,600);
 		for(int i = 0; i < yt; i++){
 			for(int j = 0; j < xt; j++){
 				tiles.get(i).get(j).render(g);

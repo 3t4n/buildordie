@@ -7,7 +7,7 @@ import buildordie.*;
 
 public class Tile
 {
-	private Point posicion;
+	private Point posicion,offset;
 	private int anchura, altura;
 	
 	public Tile(Point p, int w, int h){
@@ -15,21 +15,20 @@ public class Tile
 		anchura = w;
 		altura = h;
 		//piso = Utils.loadImage(d);
+		offset = new Point(0,0);
 	}
 	
 	public void update(){
-		Point off = Global.jugador.getPosition();
-		posicion = new Point((int)(off.getX()+posicion.getX()), (int)(off.getY()+posicion.getY()));
+		offset = Global.jugador.getPosition();
+	//	posicion = new Point((int)(off.getX()+posicion.getX()), (int)(off.getY()+posicion.getY()));
 	}
 	
 	public void render(Graphics g){
 	//	BufferedImage piso = new BufferedImage(anchura,altura,BufferedImage.TYPE_INT_RGB);
 	//	Graphics t = piso.getGraphics();
 		g.setColor(Color.black);
-		g.fillRect((int)posicion.getX(), (int)posicion.getY(), anchura, altura);
-		
+		g.fillRect((int)(posicion.getX()-offset.getX()), (int)(posicion.getY()-offset.getY()), anchura, altura);	
 		g.setColor(Color.white);
-		g.fillRect((int)posicion.getX(), (int)posicion.getY(), anchura-1, altura-1);
-		//g.drawImage(piso,(int)posicion.getX(),(int)posicion.getY(),Global.panel);
+		g.fillRect((int)(posicion.getX()-offset.getX()), (int)(posicion.getY()-offset.getY()), anchura-1, altura-1);
 	}
 }

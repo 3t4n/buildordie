@@ -16,7 +16,7 @@ public class Game extends Screen
 	{
 		super(contexto);
 		mapa = new World(40,40,32,32);
-		player = new ImageEntity("assets/animations/players/Man/Walk_bat/Walk_bat",new Point(100,100));
+		player = new ImageEntity("assets/animations/players/Man/Walk_bat/Walk_bat",new Point(400,300));
 		zombie = new ImageEntity("assets/animations/enemies/zombie/Walk/walk",new Point(0,0));
 		Global.jugador=player;
 		player.setController(new PlayerController());

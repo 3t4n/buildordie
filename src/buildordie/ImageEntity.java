@@ -57,6 +57,6 @@ public class ImageEntity implements Entity
 	public void render(Graphics g)
 	{
 		if(this.animacion!=null)
-			g.drawImage(animacion.getFrame(),0,0,Global.panel);
+			g.drawImage(animacion.getFrame(),400,300,Global.panel);
 	}
 }
