@@ -1,6 +1,6 @@
 package buildordie;
 
-import java.util.ArrayList;
+import java.util.*;
 import java.awt.*;
 
 public class World
@@ -8,6 +8,8 @@ public class World
 	private int xt,yt,dimensionx,dimensiony;
 	private Rectangle camara;
 	private ArrayList<ArrayList<Tile>> tiles;
+	private Random randCol = new Random();
+
 	public World(int xt, int yt, int dimensionx, int dimensiony){
 		camara = new Rectangle(0,0,800,600);
 		this.xt = xt;
@@ -23,7 +25,7 @@ public class World
 			tiles.add(fila);
 		}
 	}
-	
+
 	public void update(){
 		for(int i = 0; i < yt; i++){
 			for(int j = 0; j < xt; j++){
@@ -31,7 +33,7 @@ public class World
 			}
 		}
 	}
-	
+
 	public void render(Graphics g)
 	{
 		g.setColor(Color.black);
