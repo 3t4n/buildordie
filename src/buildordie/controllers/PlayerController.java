@@ -43,7 +43,7 @@ public class PlayerController implements Controller
 		else
 		{
 				e.getAnimation().setFrame(0);
-			e.getAnimation().setRotation((int) Math.toDegrees(Math.atan2(Global.raton.getY()-400, Global.raton.getX()-300))+220);
+			e.getAnimation().setRotation((int) Math.toDegrees(Math.atan2(Global.raton.getY()-posicion.getY(), Global.raton.getX()-posicion.getX()))+220);
 		}
 	}
 }
