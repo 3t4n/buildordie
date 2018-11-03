@@ -22,7 +22,7 @@ public class ImageEntity implements Entity
 	{
 		this.controlador=c;
 	}
-	
+
 	@Override
 	public void setPosition(Point p)
 	{
@@ -46,7 +46,7 @@ public class ImageEntity implements Entity
 	}
 	@Override
 	public void setAnimation(Animation a)
-	{	
+	{
 		this.animacion=a;
 	}
 	public Animation getAnimation()
@@ -57,6 +57,6 @@ public class ImageEntity implements Entity
 	public void render(Graphics g)
 	{
 		if(this.animacion!=null)
-			g.drawImage(animacion.getFrame(),400,300,Global.panel);
+			g.drawImage(animacion.getFrame(),(int)posicion.getX(),(int)posicion.getY(),Global.panel);
 	}
 }
