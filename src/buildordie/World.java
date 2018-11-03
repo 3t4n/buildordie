@@ -7,8 +7,8 @@ public class World
 {
 	private int xt,yt,dimensionx,dimensiony;
 	private Rectangle camara;
-	private ArrayList<ArrayList<Tile>> tiles;
 	private Random randCol = new Random();
+	private ArrayList<ArrayList<Tile>> tiles;
 
 	public World(int xt, int yt, int dimensionx, int dimensiony){
 		camara = new Rectangle(0,0,800,600);
@@ -20,7 +20,7 @@ public class World
 		for(int i = 0; i < yt; i++){
 			ArrayList<Tile> fila = new ArrayList<Tile>();
 			for(int j = 0; j < xt; j++){
-				fila.add(new Tile(new Point(i*dimensionx,j*dimensiony), dimensionx, dimensiony));
+				fila.add(new Tile(new Point(i*dimensionx,j*dimensiony), dimensionx, dimensiony, randCol.nextInt()));
 			}
 			tiles.add(fila);
 		}
