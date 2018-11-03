@@ -6,8 +6,10 @@ import java.awt.*;
 public class World
 {
 	private int xt,yt,dimensionx,dimensiony;
+	private Rectangle camara;
 	private ArrayList<ArrayList<Tile>> tiles;
 	public World(int xt, int yt, int dimensionx, int dimensiony){
+		camara = new Rectangle(0,0,800,600);
 		this.xt = xt;
 		this.yt = yt;
 		this.dimensionx = dimensionx;
@@ -36,8 +38,8 @@ public class World
 		g.fillRect(0,0,800,600);
 		for(int i = 0; i < yt; i++){
 			for(int j = 0; j < xt; j++){
-				tiles.get(i).get(j).render(g);
-				System.out.println(i);
+				if(camara.intersects(tiles.get(i).get(j).getRectangle()));
+					tiles.get(i).get(j).render(g);
 			}
 		}
 	}
