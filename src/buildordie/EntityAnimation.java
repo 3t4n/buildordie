@@ -25,7 +25,7 @@ public class EntityAnimation implements Animation
 		cuadros=Utils.instance.loadAnimation(nombre,numFrames);
 	}
 
-	@Override 
+	@Override
 	public void setRotation(int r)
 	{
 		this.rotacion=r;
@@ -46,7 +46,7 @@ public class EntityAnimation implements Animation
 		}
 		if(imagenAct%numFrames==0)
 		{
-			imagenAct=0;	
+			imagenAct=0;
 		}
 		ticks++;
 
@@ -65,7 +65,9 @@ public class EntityAnimation implements Animation
 		AffineTransform tx = AffineTransform.getRotateInstance(rotationRequired, locationX, locationY);
 //		tx.translate(resized.getWidth()/2,resized.getHeight()/2);
 		AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
-       		return	op.filter(resized, null);
+    BufferedImage resultado =	op.filter(resized, null);
+		
+		return resultado;
 	}
 
 }

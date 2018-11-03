@@ -29,7 +29,7 @@ public class Game extends Screen
 		if (Global.teclado.justPressed(KeyEvent.VK_SPACE)) {
 			contexto.setPaused(!contexto.getPaused());
 		}
-		player.handleInput();		
+		player.handleInput();
 	}
 
 	public void update()
@@ -42,6 +42,6 @@ public class Game extends Screen
 	{
 		mapa.render(g);
 		player.render(g);
-//		zombie.render(g);
+		zombie.render(g);
 	}
 }
