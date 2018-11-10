@@ -7,4 +7,5 @@ public class Global{
 	public static Screen pantalla;
 	public static GameLoop panel;
 	public static ImageEntity jugador;
+	public static Hud hud;
 }

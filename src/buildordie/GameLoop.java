@@ -18,7 +18,7 @@ public class GameLoop extends JComponent implements Runnable, Scrollable{
 	public  static long FPS = 1000/10;
 	public  final int altura = 600;
 	public  final int anchura = 800;
-	
+
 
 	public GameLoop()
 	{
@@ -47,7 +47,7 @@ public class GameLoop extends JComponent implements Runnable, Scrollable{
 			previo = actual;
 			lag += pasado;
 			duracion += pasado;
-			
+
 			if(duracion>30000)
 			{
 				duracion=0;
@@ -66,6 +66,13 @@ public class GameLoop extends JComponent implements Runnable, Scrollable{
 				lag -= FPS;
 			}
 			Global.pantalla.render(buffer.getGraphics());
+			if(Global.hud!=null)
+			{
+				BufferedImage fondohud = ((BufferedImage)buffer).getSubimage(0,0,100,60);
+	    	Utils.toGray(fondohud);
+				buffer.getGraphics().drawImage(fondohud, 0,0, this);
+				Global.hud.render(buffer.getGraphics());
+			}
 			getGraphics().drawImage(buffer, 0,0, this);
 		}
 	}
@@ -89,7 +96,7 @@ public class GameLoop extends JComponent implements Runnable, Scrollable{
 	{
 		return false;
 	}
-	@Override 
+	@Override
 	public boolean getScrollableTracksViewportHeight()
 	{
 		return false;
@@ -132,4 +139,3 @@ public class GameLoop extends JComponent implements Runnable, Scrollable{
 
 
 }
-

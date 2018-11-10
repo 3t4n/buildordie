@@ -33,6 +33,8 @@ public class PlayerController implements Controller
 	@Override
 	public void update(Entity e)
 	{
+		if(((Player)e).getVida()>0)
+		{
 		Point posicion = e.getPosition();
 		int x = (int)posicion.getX();
 		int y = (int)posicion.getY();
@@ -42,14 +44,17 @@ public class PlayerController implements Controller
 			e.getAnimation().update();
 			Point nueva = new Point(x+dx,y+dy);
 			e.setPosition(nueva);
-			if(!((Game)Global.pantalla).getWorld().getRectangle().contains(e.getMask()))
-			{/*bajar vida*/
-			}
 		}
 		else
 		{
 				e.getAnimation().setFrame(0);
 			e.getAnimation().setRotation((int) Math.toDegrees(Math.atan2(Global.raton.getY()-posicion.getY(), Global.raton.getX()-posicion.getX()))+220);
 		}
+		if(e.getMask()!=null)
+		if(!((Game)Global.pantalla).getWorld().getRectangle().contains(new Rectangle((int)e.getMask().getX()+400,(int)e.getMask().getY()+300,(int)e.getMask().getWidth(),(int)e.getMask().getHeight())))
+		{/*bajar vida*/
+			((Player)e).setVida(((Player)e).getVida()-1);
+		}
 	}
+}
 }

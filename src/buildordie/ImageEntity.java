@@ -16,6 +16,8 @@ public class ImageEntity implements Entity
 		this.nombre=nombre;
 		this.posicion=p;
 		this.animacion=new EntityAnimation(nombre,180,0.2,5,1);
+		animacion.getFrame();
+		this.mask=new Rectangle(this.posicion,this.animacion.getDimension());
 	}
 	@Override
 	public void setController(Controller c)

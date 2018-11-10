@@ -32,7 +32,7 @@ public class Utils
 		return animacion;
 	}
 
-	public static BufferedImage resize(BufferedImage img, int height, int width) 
+	public static BufferedImage resize(BufferedImage img, int height, int width)
 	{
 		Image tmp = img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
 		BufferedImage resized = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
@@ -41,8 +41,20 @@ public class Utils
 		g2d.dispose();
 		return resized;
     }
-
-
+public static void toGray(BufferedImage i)
+{
+	for(int x=0; x<i.getWidth();x++)
+	for(int y=0; y<i.getHeight();y++)
+	{
+		int rgb = i.getRGB(x,y);
+		int r = (rgb>>16)& 0xFF;
+		int g = (rgb>>8)&0xFF;
+		int b = (rgb & 0xFF);
+		int grayLevel = (r+g+b)/2;
+		int gray = (grayLevel<<16) + (grayLevel<<8) + 255;
+		i.setRGB(x,y,gray);
+	}
+}
 
 	public static int msToTicks(int ms)
 	{

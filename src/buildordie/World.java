@@ -45,6 +45,7 @@ public class World
 					tiles.get(i).get(j).render(g);
 			}
 		}
+	System.out.println(mapa.toString());
 	}
 
 	public Rectangle getRectangle(){

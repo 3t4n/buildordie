@@ -12,13 +12,16 @@ public class Game extends Screen
 	World mapa;
 	ImageEntity player, zombie;
 	BufferedImage bg;
+	Hud hud;
 	public Game(GameLoop contexto)
 	{
 		super(contexto);
 		mapa = new World(40,40,32,32);
 		player = new Player();
 		zombie = new ImageEntity("assets/animations/enemies/zombie/Walk/walk",new Point(0,0));
+		hud = new Hud();
 		Global.jugador=player;
+		Global.hud = hud;
 		player.setController(new PlayerController());
 		zombie.setController(new ZombieController());
 		//bg = Utils.instance.loadImage("assets/bg/test.jpeg");
