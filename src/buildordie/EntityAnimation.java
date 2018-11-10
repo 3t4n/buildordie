@@ -14,6 +14,7 @@ public class EntityAnimation implements Animation
 	private int rotacion,numFrames;
 	private String nombre;
 	private ArrayList<BufferedImage> cuadros;
+	private BufferedImage resultado;
 
 	public EntityAnimation(String nombre, int rotacion,double escala,int numFrames,int numActs)
 	{
@@ -52,6 +53,12 @@ public class EntityAnimation implements Animation
 
 	}
 	@Override
+	public Dimension getDimension()
+	{
+		return new Dimension(resultado.getTileWidth(),resultado.getTileHeight());
+	}
+
+	@Override
 	public BufferedImage getFrame()
 	{
 		BufferedImage imag = this.cuadros.get(imagenAct);
@@ -65,8 +72,9 @@ public class EntityAnimation implements Animation
 		AffineTransform tx = AffineTransform.getRotateInstance(rotationRequired, locationX, locationY);
 //		tx.translate(resized.getWidth()/2,resized.getHeight()/2);
 		AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
-    BufferedImage resultado =	op.filter(resized, null);
-		
+    resultado =	op.filter(resized, null);
+		/*Graphics g = resultado.getGraphics();
+		g.fillRect(0,0,resultado.getTileWidth(),resultado.getTileHeight());*/
 		return resultado;
 	}
 

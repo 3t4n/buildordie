@@ -2,6 +2,7 @@ package buildordie.controllers;
 import java.awt.*;
 import buildordie.interfaces.*;
 import buildordie.*;
+import buildordie.Screens.*;
 import java.awt.event.*;
 
 public class PlayerController implements Controller
@@ -28,6 +29,7 @@ public class PlayerController implements Controller
                      : 0;
 		atacando=Global.raton.isPressed();
 	}
+
 	@Override
 	public void update(Entity e)
 	{
@@ -36,9 +38,13 @@ public class PlayerController implements Controller
 		int y = (int)posicion.getY();
 		if(move!=-1)
 		{
-			e.setPosition(new Point(x+dx,y+dy));
 			e.getAnimation().setRotation(move);
 			e.getAnimation().update();
+			Point nueva = new Point(x+dx,y+dy);
+			e.setPosition(nueva);
+			if(!((Game)Global.pantalla).getWorld().getRectangle().contains(e.getMask()))
+			{/*bajar vida*/
+			}
 		}
 		else
 		{

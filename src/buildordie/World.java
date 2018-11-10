@@ -6,12 +6,13 @@ import java.awt.*;
 public class World
 {
 	private int xt,yt,dimensionx,dimensiony;
-	private Rectangle camara;
+	private Rectangle camara,mapa;
 	private Random randCol = new Random();
 	private ArrayList<ArrayList<Tile>> tiles;
 
 	public World(int xt, int yt, int dimensionx, int dimensiony){
 		camara = new Rectangle(0,0,800,600);
+		mapa = new Rectangle(0,0,xt*dimensionx,yt*dimensiony);
 		this.xt = xt;
 		this.yt = yt;
 		this.dimensionx = dimensionx;
@@ -45,4 +46,9 @@ public class World
 			}
 		}
 	}
+
+	public Rectangle getRectangle(){
+		 return this.mapa;
+	}
+
 }

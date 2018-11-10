@@ -12,4 +12,5 @@ public interface Entity
 	public void render(Graphics g);
 	public Animation getAnimation();
 	public void setAnimation(Animation a);
+	public Rectangle getMask();
 }

@@ -38,10 +38,15 @@ public class Game extends Screen
 		player.update();
 		zombie.update();
 	}
+
 	public void render(Graphics g)
 	{
 		mapa.render(g);
 		player.render(g);
 		zombie.render(g);
+	}
+
+	public World getWorld(){
+		return this.mapa;
 	}
 }

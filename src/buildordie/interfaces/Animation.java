@@ -7,4 +7,6 @@ public interface Animation
 	public void update();
 	public void setRotation(int r);
 	public void setFrame(int f);
+	public Dimension getDimension();
+
 }

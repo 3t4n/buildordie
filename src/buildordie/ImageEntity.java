@@ -9,12 +9,12 @@ public class ImageEntity implements Entity
 	private Controller controlador;
 	private Animation animacion;
 	private boolean existe = true;
+	private Rectangle mask;
 
 	public ImageEntity(String nombre,Point p)
 	{
 		this.nombre=nombre;
 		this.posicion=p;
-
 		this.animacion=new EntityAnimation(nombre,180,0.2,5,1);
 	}
 	@Override
@@ -43,6 +43,7 @@ public class ImageEntity implements Entity
 	{
 		if(controlador!=null)
 			controlador.update(this);
+			this.mask=new Rectangle(this.posicion,this.animacion.getDimension());
 	}
 	@Override
 	public void setAnimation(Animation a)
@@ -53,6 +54,11 @@ public class ImageEntity implements Entity
 	{
 		return this.animacion;
 	}
+	@Override
+	public Rectangle getMask(){
+		return mask;
+	}
+
 	@Override
 	public void render(Graphics g)
 	{
