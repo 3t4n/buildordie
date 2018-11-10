@@ -4,12 +4,12 @@ import java.awt.*;
 public class ImageEntity implements Entity
 {
 
-	private Point posicion;
-	private String nombre;
-	private Controller controlador;
-	private Animation animacion;
-	private boolean existe = true;
-	private Rectangle mask;
+	protected Point posicion;
+	protected String nombre;
+	protected Controller controlador;
+	protected Animation animacion;
+	protected boolean existe = true;
+	protected Rectangle mask;
 
 	public ImageEntity(String nombre,Point p)
 	{
