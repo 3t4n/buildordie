@@ -13,11 +13,14 @@ public class Death extends Screen{
     super(context);
   }
 
-@Override
   public void render(Graphics g){
-    g.drawString("Te moriste",0,0);
+          g.setColor(Color.white);
+	  g.fillRect(0,0,800,600);
+          g.setColor(Color.black);
+	  g.drawString("Te moriste prro",20,100);
   }
 
+  @Override
   public void handleInput(){}
 
   public void update(){}

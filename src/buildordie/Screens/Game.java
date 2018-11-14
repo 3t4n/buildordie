@@ -41,7 +41,10 @@ public class Game extends Screen
 		player.update();
 		zombie.update();
 		if(((Player)player).getVida()<=0)
-			contexto.setScreen(new Death(contexto));
+		{
+			Global.pantalla = new Death(contexto);
+			Global.hud = null;
+		}
 	}
 
 	public void render(Graphics g)
