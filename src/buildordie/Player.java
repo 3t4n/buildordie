@@ -18,9 +18,6 @@ public class Player extends ImageEntity
 			g.drawImage(animacion.getFrame(),400,300,Global.panel);
 }
 
-
-
-
 	public int getVida(){
 		return vida;
 	}
