@@ -28,7 +28,7 @@ public class GameLoop extends JComponent implements Runnable, Scrollable{
 		Global.teclado = new KeyHandler();
 		Global.raton = new MouseHandler();
 		//bf = Utils.loadImage("assets/bg.jpg");
-		Global.pantalla = new Game(this);
+		Global.pantalla = new MainScreen(this);
 		Global.panel = this;
 		addKeyListener(Global.teclado);
 		addMouseListener(Global.raton);

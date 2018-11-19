@@ -1,11 +1,12 @@
 package buildordie.Screens;
+
 import java.awt.*;
 import java.awt.image.*;
+import java.awt.event.*;
+import java.util.*;
 import buildordie.*;
 import buildordie.interfaces.*;
 import buildordie.controllers.*;
-import java.awt.event.*;
-import java.util.*;
 
 public class Death extends Screen{
 
