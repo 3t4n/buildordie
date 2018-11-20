@@ -66,4 +66,3 @@ public class MouseHandler implements MouseListener, MouseMotionListener
     public boolean justReleased() { return justReleased; }
     public boolean isPressed() { return isPressed; }
 }
-

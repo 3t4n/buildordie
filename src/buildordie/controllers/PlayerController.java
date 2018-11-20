@@ -53,7 +53,7 @@ public class PlayerController implements Controller
 		if(e.getMask()!=null)
 		if(!((Game)Global.pantalla).getWorld().getRectangle().contains(new Rectangle((int)e.getMask().getX()+400,(int)e.getMask().getY()+300,(int)e.getMask().getWidth(),(int)e.getMask().getHeight())))
 		{/*bajar vida*/
-			((Player)e).setVida(((Player)e).getVida()-1);
+			((Player)e).setVida(((Player)e).getVida()-1); //CAMBIAR A -1
 		}
 	}
 }
